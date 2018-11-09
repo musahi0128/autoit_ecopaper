@@ -1,6 +1,6 @@
 #NoTrayIcon
 #pragma compile(Icon, ..\_common\ecopaper.ico)
-#pragma compile(Out, "..\_releases\Orlansoft ItemID Selector x86.exe")
+#pragma compile(Out, "..\releases\Orlansoft ItemID Selector x86.exe")
 #Include <Array.au3>
 #include <ButtonConstants.au3>
 #include <ComboConstants.au3>
