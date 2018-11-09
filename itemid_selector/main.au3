@@ -20,6 +20,8 @@ Global $Host = "192.168.1.251"
 Global $Port = "2638"
 Global $ServerName = "server1"
 Global $DatabaseName = "orlansoft"
+Global $DSN = "DRIVER=" & $Driver & ";UID=" & $UID & ";PWD=" & $PWD & ";Host=" & $Host & ":" & $Port & ";Encryption=NONE;Integrated=NO;ServerName=" _
+& $ServerName & ";DatabaseName=" & $DatabaseName & ";"
 
 #Region ### START Koda GUI section ### Form=E:\Works\Tools\ItemID Selector\Form1.kxf
 $Form1 = GUICreate($Title, 322, 338, -1, -1)
@@ -54,8 +56,7 @@ Func _StartUp()
 	& "where blocked = 0 and length(description) > 2 " _
 	& "order by description, itemid asc;"
 	$DB = ObjCreate("ADODB.Connection")
-	$DB.Open("DRIVER=" & $Driver & ";UID=" & $UID & ";PWD=" & $PWD & ";Host=" & $Host & ":" & $Port & ";Encryption=NONE;Integrated=NO;ServerName=" _
-	& $ServerName & ";DatabaseName=" & $DatabaseName & ";")
+	$DB.Open($DSN)
 	$Result = $DB.Execute($Query).GetRows()
 	$DB.Close
 	_ArrayDelete($Result, 0)
@@ -73,8 +74,7 @@ Func _Proceed()
 		& "where blocked = 0 and length(description) > 2 and " & GUICtrlRead($Combo1) & " like '%" & GUICtrlRead($Input1) & "%' " _
 		& "order by description, itemid asc;"
 		$DB = ObjCreate("ADODB.Connection")
-		$DB.Open("DRIVER=" & $Driver & ";UID=" & $UID & ";PWD=" & $PWD & ";Host=" & $Host & ":" & $Port & ";Encryption=NONE;Integrated=NO;ServerName=" _
-		& $ServerName & ";DatabaseName=" & $DatabaseName & ";")
+		$DB.Open($DSN)
 		$Result = $DB.Execute($Query).GetRows()
 		$DB.Close
 		_ArrayDelete($Result, 0)
