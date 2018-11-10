@@ -3,17 +3,17 @@
 #pragma compile(Out, "..\_releases\Orlansoft ItemID Selector x86 - Installer.exe")
 Global $Title = "Orlansoft ItemID Selector x86 - Installer"
 If FileExists(@ProgramFilesDir & "\SQL Anywhere 12\Bin32") == 0 Then
-	MsgBox(0, $Title, "The directory for installing SQL Anywhere 12 binary is not exist and will be created.")
+	MsgBox(0, $Title, "The directory for installing SQL Anywhere 12 binary is not exist and will be created.", 3)
 	DirCreate(@ProgramFilesDir & "\SQL Anywhere 12\Bin32")
 EndIf
 If @ProgramFilesDir == "C:\Program Files (x86)" Then
 	If FileExists(@ProgramFilesDir & "\Orlansoft Tools") == 0 Then
-		MsgBox(0, $Title, "The directory for installing Orlansoft Tools binary is not exist and will be created.")
+		MsgBox(0, $Title, "The directory for installing Orlansoft Tools binary is not exist and will be created.", 3)
 		DirCreate(@ProgramFilesDir & "\Orlansoft Tools")
 	EndIf
 Else
 	If FileExists(@ProgramFilesDir & "\Orlansoft Tools") == 0 Then
-		MsgBox(0, $Title, "The directory for installing Orlansoft Tools binary is not exist and will be created.")
+		MsgBox(0, $Title, "The directory for installing Orlansoft Tools binary is not exist and will be created.", 3)
 		DirCreate(@ProgramFilesDir & "\Orlansoft Tools")
 	EndIf
 EndIf
